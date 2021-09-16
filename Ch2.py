@@ -1,8 +1,15 @@
 import cv2
 
-img = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
+cap.set(3,640)
+cap.set(4,480)
+cap.set(10,100)
 
-cv2.imshow("Video", img)
+while True:
+    success, img = cap.read()
+    cv2.imshow("Video",img)
+    if cv2.waitKey(1) & 0xFF ==ord('q'):
+        break
 
 
-cv2.waitKey(0)
+
